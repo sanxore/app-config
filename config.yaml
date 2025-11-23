@@ -216,6 +216,26 @@ modelSpecs:
         endpoint: "agents"
         agent_id: "agent_184xxyh3WtaZqXHr6Dh-M"
         modelLabel: "Flux 1.1 Pro"
+    - name: "Perplexity Deep Research"
+      label: "Perplexity Deep Research"
+      description: "Great for in-depth research and analysis."
+      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
+      preset:
+        endpoint: "openrouter"
+        model: "perplexity/sonar-deep-research"
+        temperature: 0.3
+        promptPrefix: "Additional Rules: 1. Always print the full URL in this format (domaine_name)[FULL_URL] alwayse add a white space at the satart and the end of the citation and a comma between succesive citations, instead of just the Citation Number; 2. Ensure responses are concise and relevant; 3. Always cite the sources of your web search"
+        modelLabel: "Perplexity Deep Research"
+    - name: "Perplexity Pro"
+      label: "Perplexity Pro"
+      description: "Professional-grade model for advanced research and language tasks."
+      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
+      preset:
+        endpoint: "openrouter"
+        model: "perplexity/sonar-pro"
+        temperature: 0.3
+        promptPrefix: "Additional Rules: 1. Always print the full URL in this format (domaine_name)[FULL_URL] alwayse add a white space at the satart and the end of the citation and a comma between succesive citations, instead of just the Citation Number; 2. Ensure responses are concise and relevant; 3. Always cite the sources of your web search"
+        modelLabel: "Perplexity Pro"
     - name: "GPT-5.1 Thinking"
       label: "GPT-5.1 Thinking"
       description: "Focused on deeper logic and step-by-step reasoning."
@@ -262,24 +282,4 @@ modelSpecs:
         model: "mistralai/codestral-2508"
         modelLabel: "Mistral Codestral"
         web_search: true
-    - name: "Sonar Deep Research"
-      label: "Sonar Deep Research"
-      description: "Great for in-depth research and analysis."
-      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
-      preset:
-        endpoint: "openrouter"
-        model: "perplexity/sonar-deep-research"
-        temperature: 0.3
-        promptPrefix: "Additional Rules: 1. Always print the full URL in this format (domaine_name)[FULL_URL] alwayse add a white space at the satart and the end of the citation and a comma between succesive citations, instead of just the Citation Number; 2. Ensure responses are concise and relevant; 3. Always cite the sources of your web search"
-        modelLabel: "Sonar Deep Research"
-    - name: "Sonar Pro"
-      label: "Sonar Pro"
-      description: "Professional-grade model for advanced research and language tasks."
-      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
-      preset:
-        endpoint: "openrouter"
-        model: "perplexity/sonar-pro"
-        temperature: 0.3
-        promptPrefix: "Additional Rules: 1. Always print the full URL in this format (domaine_name)[FULL_URL] alwayse add a white space at the satart and the end of the citation and a comma between succesive citations, instead of just the Citation Number; 2. Ensure responses are concise and relevant; 3. Always cite the sources of your web search"
-        modelLabel: "Sonar Pro"
 # mcpServers:
