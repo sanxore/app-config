@@ -142,32 +142,50 @@ endpoints:
       baseURL: "${OPENROUTER_GATEWAY_URL}"
       models:
         default:
-          - openai/gpt-4o-mini
+          - openai/gpt-5-mini
         fetch: false
+    
+    - name: "openrouter-custom-search"  # Unique name for this "high thinking" lane
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "${OPENROUTER_GATEWAY_URL}"
+      models:
+        default:
+          - openai/gpt-5.1-chat
+          - google/gemini-3-pro-preview
+          - openai/chatgpt-4o-latest
+          - mistralai/mistral-medium-3.1
+          - mistralai/codestral-2508
+          - openai/gpt-5-mini
+        fetch: false
+      titleConvo: true
+      titleEndpoint: "title-endpoint"
+      dropParams: ["stop"]
+      summarize: true
+      summaryModel: "openai/gpt-5-mini"
+      forcePrompt: false
+      addParams:
+        web_search_options:
+          - search_context_size: "low"
+        plugins:
+          - id: "web"
+            max_results: 1
 
     - name: "openrouter"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "${OPENROUTER_GATEWAY_URL}"
       models:
         default:
-          - openai/gpt-4o
-          - openai/gpt-5
           - openai/gpt-5.1
-          - openai/gpt-5-chat
-          - openai/gpt-5.1-chat
-          - openai/chatgpt-4o-latest
           - anthropic/claude-sonnet-4
-          - google/gemini-2.5-pro
-          - google/gemini-3-pro-preview
-          - mistralai/mistral-medium-3.1
-          - mistralai/codestral-2508
           - perplexity/sonar-deep-research
           - perplexity/sonar-pro
+          - openai/gpt-5-mini
         fetch: false
       titleConvo: true
       titleEndpoint: "title-endpoint"
       dropParams: ["stop"]
-      summarize: false
+      summarize: true
+      summaryModel: "openai/gpt-5-mini"
       forcePrompt: false
       # addParams:
       #   plugins:
@@ -186,25 +204,31 @@ modelSpecs:
       iconURL: "https://img.icons8.com/fluency/96/chatgpt--v2.png"
       default: true
       preset:
-        endpoint: "openrouter"
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
+        endpoint: "openrouter-custom-search"
         model: "openai/gpt-5.1-chat"
         modelLabel: "GPT-5.1"
-        web_search: true
-        promptPrefix: "IMPORTANT: Do a web search only when necessary to find information that you don't have or that is not up to date, or when it is explicitly requested."
+        # web_search: true
+        # promptPrefix: "IMPORTANT: Do a web search only when necessary to find information that you don't have or that is not up to date, or when it is explicitly requested."
     - name: "Gemini 3 Pro"
       label: "Gemini 3 Pro"
       description: "Balanced model for chat and coding."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/gemini-color.svg"
       preset:
-        endpoint: "openrouter"
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
+        reasoning_effort: "low"
+        endpoint: "openrouter-custom-search"
         model: "google/gemini-3-pro-preview"
         modelLabel: "Gemini 3 Pro"
-        web_search: true
     - name: "GPT Image"
       label: "GPT Image"
       description: "Multi-capable AI assistant with image generation"
       iconURL: "https://img.icons8.com/fluency/96/chatgpt--v2.png"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "agents"
         agent_id: "agent_NWI3ttV-oA4XUZZdinIAI"
         modelLabel: "GPT Image"
@@ -213,6 +237,8 @@ modelSpecs:
       description: "Multi-capable AI assistant with image generation"
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/flux.svg"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "agents"
         agent_id: "agent_184xxyh3WtaZqXHr6Dh-M"
         modelLabel: "Flux 1.1 Pro"
@@ -221,6 +247,8 @@ modelSpecs:
       description: "Great for in-depth research and analysis."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "openrouter"
         model: "perplexity/sonar-deep-research"
         temperature: 0.3
@@ -231,6 +259,8 @@ modelSpecs:
       description: "Professional-grade model for advanced research and language tasks."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "openrouter"
         model: "perplexity/sonar-pro"
         temperature: 0.3
@@ -241,6 +271,8 @@ modelSpecs:
       description: "Focused on deeper logic and step-by-step reasoning."
       iconURL: "https://img.icons8.com/fluency/96/chatgpt--v2.png"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "openrouter"
         model: "openai/gpt-5.1"
         modelLabel: "GPT-5.1 Thinking"
@@ -250,15 +282,18 @@ modelSpecs:
       description: "Fast text and vision model, efficient and capable."
       iconURL: "https://img.icons8.com/fluency/96/chatgpt--v2.png"
       preset:
-        endpoint: "openrouter"
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
+        endpoint: "openrouter-custom-search"
         model: "openai/chatgpt-4o-latest"
         modelLabel: "GPT-4o"
-        web_search: true
     - name: "Claude Sonnet 4"
       label: "Claude Sonnet 4"
       description: "Balanced model for code writing and chat."
       iconURL: "https://img.icons8.com/fluency/96/claude.png"
       preset:
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
         endpoint: "openrouter"
         model: "anthropic/claude-sonnet-4"
         modelLabel: "Claude Sonnet 4"
@@ -268,18 +303,20 @@ modelSpecs:
       description: "Lightweight, speedy model for general tasks."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/mistral-color.svg"
       preset:
-        endpoint: "openrouter"
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
+        endpoint: "openrouter-custom-search"
         model: "mistralai/mistral-medium-3.1"
         modelLabel: "Mistral Medium"
-        web_search: true
         promptPrefix: "IMPORTANT: Do a web search only when necessary and when user ask for an information that you don't have or that is not up to date, or when it is explicitly requested."
     - name: "Mistral Codestral"
       label: "Mistral Codestral"
       description: "model built for coding and debugging."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/mistral-color.svg"
       preset:
-        endpoint: "openrouter"
+        maxContextTokens: 16000  # Becomes 8000 effective
+        max_tokens: 4096
+        endpoint: "openrouter-custom-search"
         model: "mistralai/codestral-2508"
         modelLabel: "Mistral Codestral"
-        web_search: true
 # mcpServers:
