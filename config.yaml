@@ -265,6 +265,7 @@ modelSpecs:
       preset:
         endpoint: "openrouter"
         model: "anthropic/claude-sonnet-4"
+        maxContextTokens: 4096
         modelLabel: "Claude Sonnet 4"
     - name: "Mistral Medium"
       label: "Mistral Medium"
