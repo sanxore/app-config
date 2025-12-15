@@ -49,6 +49,11 @@ fileConfig:
   fileTokenLimit: 100000
   serverFileSizeLimit: 20
 
+  # Endpoints file handling config
+  endpoints:
+    openrouter_perplexity:
+      disabled: true
+
   # Files matching these patterns use OCR (if configured)
   ocr:
     supportedMimeTypes:
@@ -149,7 +154,7 @@ endpoints:
       - "file_search"
       - "actions"
       - "tools"
-      - "ocr"
+      # - "ocr"
       # - "context"
       # - "chain"
       - "web_search"
@@ -163,6 +168,20 @@ endpoints:
         default:
           - openai/gpt-4o-mini
         fetch: false
+    
+    - name: "openrouter_perplexity"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "${OPENROUTER_GATEWAY_URL}"
+      models:
+        default:
+          - perplexity/sonar-deep-research
+          - perplexity/sonar-pro
+        fetch: false
+      titleConvo: true
+      titleEndpoint: "title-endpoint"
+      dropParams: ["stop"]
+      summarize: false
+      forcePrompt: false
 
     - name: "openrouter"
       apiKey: "${OPENROUTER_KEY}"
