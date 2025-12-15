@@ -160,6 +160,13 @@ endpoints:
       - "web_search"
       # - end_after_tools
 
+  google:
+    titleConvo: true
+    titleEndpoint: "title-endpoint"
+    summarize: false
+    forcePrompt: false
+
+
   custom:
     - name: "title-endpoint"
       apiKey: "${OPENROUTER_KEY}"
@@ -228,14 +235,22 @@ modelSpecs:
         endpoint: "openrouter"
         model: "openai/gpt-5.1-chat"
         modelLabel: "GPT-5.1"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "Gemini 3 Pro"
       label: "Gemini 3 Pro"
       description: "Balanced model for chat and coding."
       iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/gemini-color.svg"
+      fileSearch: true
       preset:
-        endpoint: "agents"
-        agent_id: "agent_oZpknv6b0Z5Ke0up7ab3E"
+        endpoint: "google"
+        model: "gemini-3-pro-preview"
+        # agent_id: "agent_QbtWbVeHDXvFrqs5nX5A_"
         modelLabel: "Gemini 3 Pro"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "GPT Image"
       label: "GPT Image"
       description: "Multi-capable AI assistant with image generation"
@@ -244,6 +259,9 @@ modelSpecs:
         endpoint: "agents"
         agent_id: "agent_NWI3ttV-oA4XUZZdinIAI"
         modelLabel: "GPT Image"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     # - name: "Flux 1.1 Pro"
     #   label: "Flux 1.1 Pro"
     #   description: "Multi-capable AI assistant with image generation"
@@ -260,6 +278,9 @@ modelSpecs:
         endpoint: "agents"
         agent_id: "agent_NofrdAOBK7KxGPHfhMRr3"
         modelLabel: "Perplexity Deep Research"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "Perplexity Pro"
       label: "Perplexity Pro"
       description: "Professional-grade model for advanced research and language tasks."
@@ -268,6 +289,9 @@ modelSpecs:
         endpoint: "agents"
         agent_id: "agent_rIoy2L1jMvIgImlw39ilH"
         modelLabel: "Perplexity Pro"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "GPT-5.1 Thinking"
       label: "GPT-5.1 Thinking"
       description: "Focused on deeper logic and step-by-step reasoning."
@@ -277,6 +301,9 @@ modelSpecs:
         endpoint: "openrouter"
         model: "openai/gpt-5.1"
         modelLabel: "GPT-5.1 Thinking"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "Claude Sonnet 4"
       label: "Claude Sonnet 4"
       description: "Balanced model for code writing and chat."
@@ -285,8 +312,10 @@ modelSpecs:
       preset:
         endpoint: "openrouter"
         model: "anthropic/claude-sonnet-4"
-        maxContextTokens: 4096
         modelLabel: "Claude Sonnet 4"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "Mistral Medium"
       label: "Mistral Medium"
       description: "Lightweight, speedy model for general tasks."
@@ -296,4 +325,7 @@ modelSpecs:
         endpoint: "openrouter"
         model: "mistralai/mistral-medium-3.1"
         modelLabel: "Mistral Medium"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
 # mcpServers:
