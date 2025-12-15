@@ -295,13 +295,4 @@ modelSpecs:
         endpoint: "openrouter"
         model: "mistralai/mistral-medium-3.1"
         modelLabel: "Mistral Medium"
-    - name: "Mistral Codestral"
-      label: "Mistral Codestral"
-      description: "model built for coding and debugging."
-      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/mistral-color.svg"
-      fileSearch: true
-      preset:
-        endpoint: "openrouter"
-        model: "mistralai/codestral-2508"
-        modelLabel: "Mistral Codestral"
 # mcpServers:
