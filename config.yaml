@@ -176,6 +176,7 @@ endpoints:
         default:
           - perplexity/sonar-deep-research
           - perplexity/sonar-pro
+          - "@preset/perplexity-preset"
         fetch: false
       titleConvo: true
       titleEndpoint: "title-endpoint"
