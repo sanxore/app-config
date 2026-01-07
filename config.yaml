@@ -175,6 +175,8 @@ endpoints:
         default:
           - openai/gpt-4o-mini
         fetch: false
+      headers:
+        x-session-id: "internal"
     
     - name: "openrouter_perplexity"
       apiKey: "${OPENROUTER_KEY}"
@@ -190,6 +192,8 @@ endpoints:
       dropParams: ["stop"]
       summarize: false
       forcePrompt: false
+      headers:
+        x-session-id: "{{LIBRECHAT_BODY_CONVERSATIONID}}"
 
     - name: "openrouter"
       apiKey: "${OPENROUTER_KEY}"
@@ -214,6 +218,8 @@ endpoints:
       dropParams: ["stop"]
       summarize: false
       forcePrompt: false
+      headers:
+        x-session-id: "{{LIBRECHAT_BODY_CONVERSATIONID}}"
       # addParams:
       #   plugins:
       #     - id: "web"
