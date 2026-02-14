@@ -297,7 +297,7 @@ modelSpecs:
         agent_id: "agent_TIPqvQik48mDbd6dQ6Y7y"
         modelLabel: "Nano Banana"
         temperature: 0.3
-        maxContextTokens: 128000
+        # maxContextTokens: 128000
         max_tokens: 4096
     - name: "GPT Image"
       label: "GPT Image"
@@ -309,7 +309,7 @@ modelSpecs:
         agent_id: "agent_NWI3ttV-oA4XUZZdinIAI"
         modelLabel: "GPT Image"
         temperature: 0.3
-        maxContextTokens: 128000
+        # maxContextTokens: 128000
         max_tokens: 4096
     # - name: "Flux 1.1 Pro"
     #   label: "Flux 1.1 Pro"
