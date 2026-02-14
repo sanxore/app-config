@@ -286,10 +286,24 @@ modelSpecs:
         temperature: 0.3
         maxContextTokens: 128000
         max_tokens: 4096
+    - name: "Nano Banana"
+      label: "Nano Banana"
+      description: "Multi-capable AI assistant with image generation"
+      iconURL: "https://unpkg.com/@lobehub/icons-static-svg@1.66.0/icons/gemini-color.svg"
+      group: Image generation
+      groupIcon: "https://www.svgrepo.com/show/375830/image.svg"
+      preset:
+        endpoint: "agents"
+        agent_id: "agent_TIPqvQik48mDbd6dQ6Y7y"
+        modelLabel: "Nano Banana"
+        temperature: 0.3
+        maxContextTokens: 128000
+        max_tokens: 4096
     - name: "GPT Image"
       label: "GPT Image"
       description: "Multi-capable AI assistant with image generation"
       iconURL: "https://img.icons8.com/fluency/96/chatgpt--v2.png"
+      group: Image generation
       preset:
         endpoint: "agents"
         agent_id: "agent_NWI3ttV-oA4XUZZdinIAI"
